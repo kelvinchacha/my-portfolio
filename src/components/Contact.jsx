@@ -50,8 +50,8 @@ const Contact = () => {
         <div className="reveal" ref={addToReveal}>
           <form className="contact-form" id="contactForm" ref={formRef} onSubmit={handleSubmit}>
             <div className="form-row">
-              <div><label className="form-label">Your Name</label><input type="text" name="from_name" className="form-input" placeholder="John Doe" required/></div>
-              <div><label className="form-label">Email Address</label><input type="email" name="from_email" className="form-input" placeholder="john@example.com" required/></div>
+              <div><label className="form-label">Your Name</label><input type="text" name="from_name" className="form-input" placeholder= required/></div>
+              <div><label className="form-label">Email Address</label><input type="email" name="from_email" className="form-input" placeholder= required/></div>
             </div>
             <div><label className="form-label">Subject</label><input type="text" name="subject" className="form-input" placeholder="Project Discussion" required/></div>
             <div><label className="form-label">Message</label><textarea name="message" className="form-textarea" placeholder="Tell me about your project..." required></textarea></div>
