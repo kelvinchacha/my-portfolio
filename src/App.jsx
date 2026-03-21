@@ -1,3 +1,4 @@
+import ChatBot from "./components/ChatBot";
 import Navbar from './components/Navbar';
 import HeroSlider from './components/HeroSlider';
 import About from './components/About';
@@ -13,7 +14,7 @@ import Footer from './components/Footer';
 function App() {
   return (
     <>
-      <Navbar />
+      <ChatBot />
       <HeroSlider />
       <About />
       <Services />
