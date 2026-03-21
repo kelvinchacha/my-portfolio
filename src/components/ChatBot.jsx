@@ -64,16 +64,12 @@ export default function ChatBot() {
     }
   };
 
-  // Responsive sizes
   const getWindowStyle = () => {
     if (isMobile) {
       return {
         position: "fixed",
-        bottom: "0",
-        left: "0",
-        right: "0",
-        width: "100%",
-        height: "85vh",
+        bottom: "0", left: "0", right: "0",
+        width: "100%", height: "85vh",
         borderRadius: "20px 20px 0 0",
         zIndex: 9998,
       };
@@ -81,20 +77,16 @@ export default function ChatBot() {
     if (isMaximized) {
       return {
         position: "fixed",
-        bottom: "0",
-        right: "0",
-        width: "50vw",
-        height: "100vh",
+        bottom: "0", right: "0",
+        width: "50vw", height: "100vh",
         borderRadius: "20px 0 0 20px",
         zIndex: 9998,
       };
     }
     return {
       position: "fixed",
-      bottom: "90px",
-      right: "120px",
-      width: "420px",
-      height: "580px",
+      bottom: "90px", right: "24px",
+      width: "420px", height: "580px",
       borderRadius: "20px",
       zIndex: 9998,
     };
@@ -108,7 +100,6 @@ export default function ChatBot() {
 
   return (
     <>
-      {/* Chat Window */}
       {isOpen && (
         <div style={{
           ...getWindowStyle(),
@@ -126,8 +117,7 @@ export default function ChatBot() {
             padding: "14px 16px",
             background: "linear-gradient(135deg, #6c63ff, #a855f7)",
             borderRadius: getHeaderRadius(),
-            display: "flex",
-            alignItems: "center",
+            display: "flex", alignItems: "center",
             justifyContent: "space-between",
             flexShrink: 0,
           }}>
@@ -150,7 +140,6 @@ export default function ChatBot() {
               </div>
             </div>
             <div style={{ display: "flex", gap: "6px" }}>
-              {/* Maximize button — desktop only */}
               {!isMobile && (
                 <button
                   onClick={() => setIsMaximized(!isMaximized)}
@@ -165,24 +154,22 @@ export default function ChatBot() {
                   onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.25)"}
                   onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.15)"}
                 >
-                  {isMaximized
-                    ? <HiMiniArrowsPointingIn size={16} />
-                    : <HiMiniArrowsPointingOut size={16} />
-                  }
+                  {isMaximized ? <HiMiniArrowsPointingIn size={16} /> : <HiMiniArrowsPointingOut size={16} />}
                 </button>
               )}
+              {/* X nyekundu — kufunga dirisha */}
               <button
                 onClick={() => setIsOpen(false)}
                 style={{
-                  background: "rgba(255,255,255,0.15)",
+                  background: "rgba(255,59,48,0.3)",
                   border: "none", borderRadius: "8px",
                   color: "white", cursor: "pointer",
                   width: "30px", height: "30px",
                   display: "flex", alignItems: "center", justifyContent: "center",
                   transition: "background 0.2s",
                 }}
-                onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.25)"}
-                onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.15)"}
+                onMouseEnter={e => e.currentTarget.style.background = "rgba(255,59,48,0.8)"}
+                onMouseLeave={e => e.currentTarget.style.background = "rgba(255,59,48,0.3)"}
               >
                 <HiMiniXMark size={18} />
               </button>
@@ -191,25 +178,20 @@ export default function ChatBot() {
 
           {/* Messages */}
           <div style={{
-            flex: 1,
-            overflowY: "auto",
+            flex: 1, overflowY: "auto",
             padding: "16px",
-            display: "flex",
-            flexDirection: "column",
-            gap: "12px",
+            display: "flex", flexDirection: "column", gap: "12px",
             scrollbarWidth: "thin",
             scrollbarColor: "#6c63ff33 transparent",
           }}>
             {messages.map((msg, i) => (
               <div key={i} style={{
-                display: "flex",
-                flexDirection: "column",
+                display: "flex", flexDirection: "column",
                 alignItems: msg.role === "user" ? "flex-end" : "flex-start",
                 gap: "4px",
               }}>
                 <div style={{
-                  fontSize: "10px",
-                  color: "rgba(255,255,255,0.35)",
+                  fontSize: "10px", color: "rgba(255,255,255,0.35)",
                   paddingLeft: msg.role === "user" ? "0" : "4px",
                   paddingRight: msg.role === "user" ? "4px" : "0",
                 }}>
@@ -224,9 +206,7 @@ export default function ChatBot() {
                   borderRadius: msg.role === "user"
                     ? "18px 18px 4px 18px"
                     : "18px 18px 18px 4px",
-                  maxWidth: "82%",
-                  fontSize: "13px",
-                  lineHeight: "1.6",
+                  maxWidth: "82%", fontSize: "13px", lineHeight: "1.6",
                   boxShadow: msg.role === "user"
                     ? "0 4px 12px rgba(108,99,255,0.3)"
                     : "0 2px 8px rgba(0,0,0,0.3)",
@@ -237,22 +217,19 @@ export default function ChatBot() {
               </div>
             ))}
 
-            {/* Typing indicator */}
             {loading && (
               <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "4px" }}>
                 <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.35)", paddingLeft: "4px" }}>
                   Dev. Chacha AI
                 </div>
                 <div style={{
-                  background: "#1e1e32",
-                  padding: "12px 16px",
+                  background: "#1e1e32", padding: "12px 16px",
                   borderRadius: "18px 18px 18px 4px",
                   display: "flex", gap: "5px", alignItems: "center",
                 }}>
                   {[0, 1, 2].map(i => (
                     <div key={i} style={{
-                      width: "7px", height: "7px",
-                      borderRadius: "50%",
+                      width: "7px", height: "7px", borderRadius: "50%",
                       background: "#6c63ff",
                       animation: "bounce 1.2s infinite",
                       animationDelay: `${i * 0.2}s`,
@@ -266,21 +243,15 @@ export default function ChatBot() {
 
           {/* Suggested Questions */}
           {messages.length === 1 && (
-            <div style={{
-              padding: "0 16px 12px",
-              display: "flex", flexWrap: "wrap", gap: "6px",
-            }}>
+            <div style={{ padding: "0 16px 12px", display: "flex", flexWrap: "wrap", gap: "6px" }}>
               {["What can Chacha build?", "Show me his projects", "How do I hire him?"].map((q) => (
                 <button key={q} onClick={() => setInput(q)}
                   style={{
                     background: "rgba(108,99,255,0.15)",
                     border: "1px solid rgba(108,99,255,0.3)",
-                    borderRadius: "20px",
-                    color: "rgba(255,255,255,0.8)",
-                    padding: "6px 14px",
-                    fontSize: "12px",
-                    cursor: "pointer",
-                    transition: "all 0.2s",
+                    borderRadius: "20px", color: "rgba(255,255,255,0.8)",
+                    padding: "6px 14px", fontSize: "12px",
+                    cursor: "pointer", transition: "all 0.2s",
                   }}
                   onMouseEnter={e => e.currentTarget.style.background = "rgba(108,99,255,0.3)"}
                   onMouseLeave={e => e.currentTarget.style.background = "rgba(108,99,255,0.15)"}
@@ -304,14 +275,11 @@ export default function ChatBot() {
               onKeyDown={handleKey}
               placeholder="Ask anything..."
               style={{
-                flex: 1,
-                padding: "10px 14px",
+                flex: 1, padding: "10px 14px",
                 borderRadius: "12px",
                 border: "1px solid rgba(108,99,255,0.3)",
-                background: "#1e1e32",
-                color: "white",
-                fontSize: "14px",
-                outline: "none",
+                background: "#1e1e32", color: "white",
+                fontSize: "14px", outline: "none",
                 transition: "border 0.2s",
               }}
               onFocus={e => e.target.style.borderColor = "#6c63ff"}
@@ -321,14 +289,12 @@ export default function ChatBot() {
               onClick={sendMessage}
               disabled={loading || !input.trim()}
               style={{
-                width: "44px", height: "44px",
-                borderRadius: "12px",
+                width: "44px", height: "44px", borderRadius: "12px",
                 background: input.trim() ? "linear-gradient(135deg, #6c63ff, #a855f7)" : "#1e1e32",
                 border: "none", color: "white",
                 cursor: input.trim() ? "pointer" : "not-allowed",
                 display: "flex", alignItems: "center", justifyContent: "center",
-                transition: "all 0.2s",
-                flexShrink: 0,
+                transition: "all 0.2s", flexShrink: 0,
               }}
             >
               <IoSend size={18} />
@@ -337,11 +303,11 @@ export default function ChatBot() {
         </div>
       )}
 
-      {/* Toggle Button */}
+      {/* Toggle Button — daima "Ask AI Assistant" */}
       <div style={{
         position: "fixed",
         bottom: isMobile ? "16px" : "24px",
-        right: isMobile ? "16px" : "120px",
+        right: isMobile ? "16px" : "24px",
         zIndex: 9999,
       }}>
         <button
@@ -349,19 +315,14 @@ export default function ChatBot() {
           style={{
             height: isMobile ? "50px" : "54px",
             borderRadius: "27px",
-            background: isOpen
-              ? "#1e1e32"
-              : "linear-gradient(135deg, #ff6b35, #f7c948)",
-            border: isOpen ? "1px solid rgba(108,99,255,0.4)" : "none",
-            color: isOpen ? "white" : "#1a1a1a",
+            background: "linear-gradient(135deg, #ff6b35, #f7c948)",
+            border: "none",
+            color: "#1a1a1a",
             cursor: "pointer",
             display: "flex", alignItems: "center",
-            gap: "10px",
-            padding: "0 20px",
-            boxShadow: isOpen
-              ? "none"
-              : "0 8px 28px rgba(255,107,53,0.55)",
-            animation: isOpen ? "none" : "popBounce 2s ease-in-out infinite",
+            gap: "10px", padding: "0 20px",
+            boxShadow: "0 8px 28px rgba(255,107,53,0.55)",
+            animation: "popBounce 2s ease-in-out infinite",
             transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
           }}
           onMouseEnter={e => {
@@ -369,18 +330,17 @@ export default function ChatBot() {
             e.currentTarget.style.transform = "translateY(-3px) scale(1.05)";
           }}
           onMouseLeave={e => {
-            if (!isOpen) e.currentTarget.style.animation = "popBounce 2s ease-in-out infinite";
+            e.currentTarget.style.animation = "popBounce 2s ease-in-out infinite";
             e.currentTarget.style.transform = "translateY(0) scale(1)";
           }}
         >
           <TbMessageChatbot size={22} />
           <span style={{ fontSize: "14px", fontWeight: "700", whiteSpace: "nowrap", letterSpacing: "0.3px" }}>
-            {isOpen ? "Close Chat" : "Ask AI Assistant"}
+            Ask AI Assistant
           </span>
         </button>
       </div>
 
-      {/* Animations */}
       <style>{`
         @keyframes bounce {
           0%, 60%, 100% { transform: translateY(0); }
