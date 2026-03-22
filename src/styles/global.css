@@ -257,13 +257,13 @@ body {
 
 /* Background transitions */
 .section-1 {
-  background: linear-gradient(180deg, var(--white) 0%, var(--sky-light) 100%);
+  background: linear-gradient(180deg, var(--ocean-deep) 0%, var(--white) 12%, var(--sky-light) 100%);
 }
 .section-2 {
   background: linear-gradient(180deg, var(--sky-light) 0%, var(--white) 100%);
 }
 .section-3 {
-  background: var(--white);
+  background: linear-gradient(180deg, var(--white) 0%, var(--white) 80%, var(--ocean-deep) 100%);
 }
 .section-4 {
   background: linear-gradient(180deg, var(--white) 0%, var(--sky-light) 50%, var(--white) 100%);

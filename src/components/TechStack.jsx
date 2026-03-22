@@ -109,7 +109,7 @@ const TechStack = () => {
       id="techstack"
       style={{
         padding: '80px 0 90px',
-        background: 'linear-gradient(160deg, var(--ocean-deep) 0%, var(--ocean-dark) 100%)',
+        background: 'linear-gradient(180deg, var(--ocean-deep) 0%, var(--ocean-dark) 85%, var(--white) 100%)',
         overflow: 'hidden',
       }}
     >
